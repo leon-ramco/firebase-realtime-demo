@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Firebase Demo</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+    <script src="bower_components/chart.js/dist/Chart.min.js"></script>
+    <script src="bower_components/angular-chart.js/angular-chart.js"></script>
+
+
+    <script src="app.js"></script>
+
+     <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body ng-app="myApp">
+<h1>Firebase Demo</h1>
+<div ng-controller="MainCtrl" class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h4>Data Array from Force Sensor:</h4>
+            <ul>
+                <li ng-repeat="f in data.force_array track by $index">{{f}}</li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <h4>Dynamic Chart(by chart.js):</h4>
+            <canvas id="line" class="chart chart-line" chart-data="data.force_array" chart-labels="labels">
+            </canvas>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyD7A-8uGYGlqeoTxSmhVdZkiXidMn0N2ns",
+        authDomain: "leon-first-firebase.firebaseapp.com",
+        databaseURL: "https://leon-first-firebase.firebaseio.com",
+        storageBucket: "leon-first-firebase.appspot.com",
+        messagingSenderId: "758494436505"
+    };
+    firebase.initializeApp(config);
+</script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
